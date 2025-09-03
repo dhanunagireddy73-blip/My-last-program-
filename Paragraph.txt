@@ -1,0 +1,1 @@
+The "lifecycle" of an HTML page refers to the sequence of events that occur from the moment a web page is requested by a browser until it is fully loaded and displayed to the user, and even when the user navigates away from it. While the core HTML structure remains consistent, the events within this lifecycle are often managed and responded to using JavaScript.
