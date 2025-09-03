@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Page Lifecycle Example</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        #message {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Page!</h1>
+    <p>This paragraph is part of the initial HTML content.</p>
+    <div id="message"></div>
+
+    <script>
+        // Event fired when the initial HTML document has been completely loaded and parsed,
+        // without waiting for stylesheets, images, and subframes to finish loading.
+        document.addEventListener('DOMContentLoaded', () => {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent += 'DOMContentLoaded event fired. DOM is ready. ';
+            console.log('DOMContentLoaded: DOM is fully parsed.');
+        });
+
+        // Event fired when the whole page has loaded, including all dependent resources
+        // such as stylesheets and images.
+        window.addEventListener('load', () => {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent += 'Load event fired. All resources loaded. ';
+            console.log('Load: All resources (images, styles, etc.) are loaded.');
+        });
+
+        // Event fired when the window, the document and its resources are about to be unloaded.
+        // Useful for showing a confirmation dialog before leaving the page.
+        window.addEventListener('beforeunload', (event) => {
+            // Uncomment the following line to prompt the user before leaving
+            // event.returnValue = 'Are you sure you want to leave this page?';
+            console.log('BeforeUnload: User is about to leave the page.');
+        });
+
+        // Event fired when the page is being unloaded.
+        window.addEventListener('unload', () => {
+            console.log('Unload: Page is being unloaded.');
+        });
+    </script>
+</body>
+</html>
